@@ -50,9 +50,10 @@ function pick (state, action) {
 function eat (state, action) {
   let currentApples = [...state.currentApples],
       eatApples = [...state.eatApples],
-      eatingApple = action.data.apple,
-      appleIndex = 0
+      eatingApple = action.data.apple,//正在吃的苹果
+      appleIndex = 0 //正在吃的苹果在当前苹果篮子中的index
 
+  //用some遍历数组，找到正在吃的苹果的id，就立马返回
   currentApples.some((apple, index) => {
     if (eatingApple.id === apple.id) {
       appleIndex = index
@@ -61,6 +62,7 @@ function eat (state, action) {
     return false
   })
 
+  //删除正在吃的苹果
   currentApples.splice(appleIndex, 1)
   eatApples.push(eatingApple)
 
@@ -71,6 +73,7 @@ function eat (state, action) {
   }
 }
 
+//与吃苹果类似
 function ripening (state, action) {
   let currentApples = [...state.currentApples],
       ripeningApples = [...state.ripeningApples],
