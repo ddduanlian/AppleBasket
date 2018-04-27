@@ -33,6 +33,3 @@ react性能优化非常重要的一环。组件接受新的state或者props时�
 #### 1.3 组件卸载
 componentWillUnmount() 定时器的清除<br/>
 组件将要卸载时调用，一些事件监听和定时器需要在此时清除。
-  
-connect：连接react组件和redux store
-Provider：实现store的全局访问，将store传给组件。原理：使用react的context，context可以实现跨组件之间的传递
