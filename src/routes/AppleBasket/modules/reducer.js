@@ -24,6 +24,7 @@ function reducer (state = defaultState, action) {
 }
 
 function initTree (state, action) {
+  //直接返回从action中初始化的苹果树
   return {
     ...state,
     appleTree: action.data.tree
@@ -34,7 +35,9 @@ function pick (state, action) {
   let appleTree = [...state.appleTree],
       currentApples = [...state.currentApples]
 
+  //先从苹果树上shift出一个苹果，这里用shift是从数组的开头取，而pop是从末尾取
   let apple = appleTree.shift()
+  //再把这个苹果push进去当前的苹果篮子中
   currentApples.push(apple)
 
   return {
